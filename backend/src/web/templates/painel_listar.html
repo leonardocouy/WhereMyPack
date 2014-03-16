@@ -1,0 +1,43 @@
+{% extends 'templates/painel_index.html' %}
+
+    {% block conteudo_painel %}
+
+        <style type="text/css">
+        table { border-style: solid;
+        border-color: rgba(97, 96, 86, 0.85);
+        }
+        </style>
+        <div class="control-group" align="center">
+          <div ng-app="myapp" ng-controller="RastreioController">
+             <div ng-repeat="filter in filters">
+                <p><label> Listar código: </label> <select ng-init="listarCodRastreio()" ng-options="cod for cod in infoCod" ng-model="filters[$index].cod">
+                        <option value="" disabled> Selecione o código desejado</option>
+                 </select>
+                 <button ng-click="listarRegistros(filters[$index].cod)">Carregar</button><br>
+                </p>
+                 <br> <br>
+                  <table border = "1">
+                        <tr>
+                          <td width="150"> <label> Data </label> </td>
+                          <td width="200"> <label> Local </label> </td>
+                          <td width="200"> <label> Encaminhado </label></td>
+                          <td width="200"> <label> Situação </label></td>
+                         </tr>
+                     </table>
+                     <table ng-repeat="rastreio in infoRastreio" border="1" >
+                         <tr>
+                          <td width="150"> {_ rastreio.data _}</td>
+                          <td width="200"> {_ rastreio.local _}</td>
+                          <td width="200"> {_ rastreio.encaminhado _}</td>
+                          <td width="200"> {_ rastreio.situacao _}</td>
+                         </tr>
+
+
+                     </table>
+              </div>
+
+         </div>
+
+        </div>
+
+    {% endblock %}

@@ -4,6 +4,10 @@ runtime: python27
 api_version: 1
 threadsafe: yes
 
+
+builtins:
+- deferred: on
+
 inbound_services:
 - warmup
 
@@ -33,6 +37,10 @@ handlers:
 
 - url: /_ah/warmup
   script: warmup.app
+
+- url: /painel/verificar_status
+  script: convention.app
+  login: admin
 
 - url: /.*
   script: convention.app

@@ -1,11 +1,43 @@
 {% extends 'templates/painel_base.html' %}
-    {% block conteudo %}
+    {% block painel %}
+ <div class="container">
 
-    <h1> Escolha uma opção: </h1>
-    <ol>
-        <li> Cadastrar um Rastreio</li>
-        <li> Verificar Status de Rastreio</li>
-        <li> Histórico de Rastreio</li>
-    </ol>
+  <!-- upper section -->
+  <div class="row">
+	<div class="col-md-3">
+ <strong><i class="glyphicon glyphicon-briefcase"></i> Escolha uma opção: </strong>
+      <hr>
+
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="/painel/cad_rastreio"><i class="glyphicon glyphicon-plus"></i> Novo Rastreio</a></li>
+        <li><a href="/painel/listar" ><i class="glyphicon glyphicon-flash"></i> Listar Rastreios </a></li>
+        <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Excluir Rastreios</a></li>
+      </ul>
+
+      <hr>
+
+  	</div><!-- /span-3 -->
+    <div class="col-md-9">
+
+      <!-- column 2 -->
+
+
+       <a href="/painel"><strong><i class="glyphicon glyphicon-dashboard"></i> Painel de Controle</strong></a>
+
+       <hr>
+
+	   <div class="row">
+            <!-- center left-->
+        <div class="well" >
+                  {% block conteudo_painel %}
+
+                  {% endblock %}
+                    </div>
+
+                  </div><!--/panel-body-->
+              </div><!--/panel-->
+
+          	</div><!--/col-->
+
 
     {% endblock %}

@@ -1,13 +1,29 @@
-{% extends 'templates/painel_base.html' %}
+{% extends 'templates/painel_index.html' %}
+    {% block conteudo_painel %}
 
-    {% block conteudo %}
+         <form action = "{{salvar_rastreio}}" method = "post" class="form form-vertical">
+            <div class="control-group">
+              <label>Código de Rastreio</label>
+              <div class="controls">
+                <input type="text" class="form-control"  name = "cod_rastreio"  placeholder="Ex: SA468800124BR">
+              </div>
+            </div>
+            <div class="control-group">
+              <label>Email a ser notificado</label>
+              <div class="controls">
+                <input type="text" name = "email" class="form-control" placeholder="Ex: wheremypack@hotmail.com">
+              </div>
+            </div>
+             <br>
+             <label>Obs: Seu email será utilizado, quando houver uma atualização em seu rastreio. </label>
+             <br>
+              <div class="controls">
+                <button type="submit" class="btn btn-primary">
+                  Salvar
+                </button>
+              </div>
+            </div>
 
-    <h1> Preencha as Informações </h1>
-        <form action = "{{salvar_rastreio}}" method = "post">
-            Código de Rastreio: <input type = "text" name = "cod_rastreio"> <br>
-            Email: <input type = "text" name = "email"> <br>
-            Obs: Seu email será utilizado, quando houver uma atualização em seu rastreio.
-            <br><input type = "submit" value = "Salvar">
-        </form>
-        
+          </form>
+
     {% endblock %}

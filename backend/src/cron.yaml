@@ -1,0 +1,4 @@
+cron:
+- description: meia hora
+  url: /painel/verificar_status
+  schedule: every 30 minutes
